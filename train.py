@@ -6,11 +6,10 @@ import pickle
 
 df = pd.read_csv(
     "https://raw.githubusercontent.com/jbrownlee/Datasets/master/winequality-red.csv",
-    sep=";",
-    engine="python"
+    sep=","
 )
 
-print(df.columns)  # DEBUG
+print(df.columns)  # debug
 
 df.columns = df.columns.str.strip()
 

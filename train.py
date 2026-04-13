@@ -4,10 +4,8 @@ from sklearn.metrics import mean_squared_error, r2_score
 import json
 import pickle
 
-# Load dataset
-df = pd.read_csv("https://raw.githubusercontent.com/jbrownlee/Datasets/master/winequality-red.csv", sep=";")
+df = pd.read_csv("https://raw.githubusercontent.com/jbrownlee/Datasets/master/winequality-red.csv", sep=None, engine='python')
 
-# FIX
 df.columns = df.columns.str.strip()
 
 X = df.drop("quality", axis=1)

@@ -4,14 +4,19 @@ from sklearn.metrics import mean_squared_error, r2_score
 import json
 import pickle
 
+columns = [
+    "fixed acidity", "volatile acidity", "citric acid",
+    "residual sugar", "chlorides", "free sulfur dioxide",
+    "total sulfur dioxide", "density", "pH", "sulphates",
+    "alcohol", "quality"
+]
+
 df = pd.read_csv(
     "https://raw.githubusercontent.com/jbrownlee/Datasets/master/winequality-red.csv",
-    sep=","
+    sep=",",
+    header=None,
+    names=columns
 )
-
-print(df.columns)  # debug
-
-df.columns = df.columns.str.strip()
 
 X = df.drop("quality", axis=1)
 y = df["quality"]

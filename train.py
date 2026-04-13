@@ -4,7 +4,13 @@ from sklearn.metrics import mean_squared_error, r2_score
 import json
 import pickle
 
-df = pd.read_csv("https://raw.githubusercontent.com/jbrownlee/Datasets/master/winequality-red.csv", sep=None, engine='python')
+df = pd.read_csv(
+    "https://raw.githubusercontent.com/jbrownlee/Datasets/master/winequality-red.csv",
+    sep=";",
+    engine="python"
+)
+
+print(df.columns)  # DEBUG
 
 df.columns = df.columns.str.strip()
 

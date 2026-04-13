@@ -1,21 +1,18 @@
 pipeline {
-    agent {
-        docker {
-            image 'python:3.9'
-        }
-    }
+    agent any
 
     stages {
 
         stage('Setup') {
             steps {
-                sh 'pip install -r requirements.txt'
+                sh 'python3 -m ensurepip || true'
+                sh 'python3 -m pip install --user pandas scikit-learn'
             }
         }
 
         stage('Train') {
             steps {
-                sh 'python train.py'
+                sh 'python3 train.py'
             }
         }
 

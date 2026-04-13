@@ -5,8 +5,7 @@ pipeline {
 
         stage('Setup') {
             steps {
-                sh 'python3 -m ensurepip || true'
-                sh 'python3 -m pip install --user pandas scikit-learn'
+                sh 'pip3 install -r requirements.txt'
             }
         }
 

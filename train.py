@@ -7,6 +7,9 @@ import pickle
 # Load dataset
 df = pd.read_csv("https://raw.githubusercontent.com/jbrownlee/Datasets/master/winequality-red.csv", sep=";")
 
+# FIX
+df.columns = df.columns.str.strip()
+
 X = df.drop("quality", axis=1)
 y = df["quality"]
 
